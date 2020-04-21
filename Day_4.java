@@ -8,14 +8,13 @@ Note:
 You must do this in-place without making a copy of the array.
 Minimize the total number of operations.
 */
+
 import java.util.ArrayList;
+class Solution {
+    public void moveZeroes(int[] nums) {
 
-public class HelloWorld{
-
-     public static void main(String []args){
         
         ArrayList<Integer> values = new ArrayList<>();        
-        int [] nums = {0,1,0,3,12};
         int zeros= 0;
         int nonzeros=0;
         
@@ -46,9 +45,10 @@ public class HelloWorld{
         }
         
         for(int var : nums){
-            System.out.print(var+" ");
+            System.out.print(var+",");
+        }
+                
+            
         }
         
-        
     }
-}
