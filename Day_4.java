@@ -8,7 +8,7 @@ Note:
 You must do this in-place without making a copy of the array.
 Minimize the total number of operations.
 */
-
+//First approach using arraylist
 import java.util.ArrayList;
 class Solution {
     public void moveZeroes(int[] nums) {
@@ -52,3 +52,24 @@ class Solution {
         }
         
     }
+// Second Solution without using arraylist
+
+class Solution
+{ 
+    public void moveZeroes(int[] nums) {
+        
+        int n = nums.length; 
+        int count = 0; 
+        
+        for (int i = 0; i < n; i++)
+            if (nums[i] != 0)
+                nums[count++] = nums[i];
+                
+        while (count < n) 
+            nums[count++] = 0; 
+        
+        for (int i=0; i<n; i++) 
+            System.out.print(nums[i]+" "); 
+    } 
+} 
+        
