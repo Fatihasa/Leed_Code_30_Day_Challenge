@@ -22,8 +22,6 @@ class Solution {
 
 //It is assumed that maximum number of iterations is less than 100    
 
-
-
       for(int j = 0 ; j < max ; j++ ){
 
         n=a;
@@ -61,7 +59,32 @@ class Solution {
 
         }     
         return false;
+    }
+}
 
+//I wanted to update the first solution, this is a lot easier to understand
+
+class Solution {
+        public boolean isHappy(int n) {
+        int sum = 0;
+        List<Integer> numbers = new ArrayList<>();
+        do {
+            numbers.add(sum);
+            sum = 0;
+
+            for(int i = 0 ; n != 0 ; i++){
+                sum += ((n%10) * (n%10)); 
+                n = n/10;
+            }
+            
+            
+            if(sum == 1){
+                return true;
+            }
+            
+            n = sum;
+        } while(!numbers.contains(sum));  
+        return false;
 
     }
 }
