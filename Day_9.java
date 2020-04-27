@@ -45,8 +45,7 @@ class Solution {
         
         AddArrayList(S , arraylistS);
         AddArrayList(T , arraylistF);
-        
-        
+         
         BackSpace(arraylistS);
         BackSpace(arraylistF);
    
@@ -54,9 +53,7 @@ class Solution {
         if(arraylistS.equals(arraylistF)){
             bool = true;
         }
-        
          return bool;
-        
      }
      
      static void AddArrayList(String S , ArrayList<Character> arraylistS){
@@ -93,7 +90,6 @@ class Solution {
                     
                 }
             }
-        
         }
     }
 }
