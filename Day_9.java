@@ -36,18 +36,35 @@ Can you solve it in O(N) time and O(1) space?
 class Solution {
     public boolean backspaceCompare(String S, String T) {
         
+       boolean bool = false;
+
         //Arraylists are created to compare 2 different Strings
         //I prefered arraylist to add and remove
         ArrayList<Character> arraylistS = new ArrayList<Character>();
         ArrayList<Character> arraylistF = new ArrayList<Character>();
         
-        //char array is necessary to manipulate characters in the string 
-        char[] charS = S.toCharArray();
-        char[] charF = T.toCharArray();
+        AddArrayList(S , arraylistS);
+        AddArrayList(T , arraylistF);
         
-        boolean bool = false;
-
-        //this loop add chars to arraylist
+        
+        BackSpace(arraylistS);
+        BackSpace(arraylistF);
+   
+        //final condition for comparing two strings in arraylists
+        if(arraylistS.equals(arraylistF)){
+            bool = true;
+        }
+        
+         return bool;
+        
+     }
+     
+     static void AddArrayList(String S , ArrayList<Character> arraylistS){
+        
+         //char array is necessary to manipulate characters in the string
+        char[] charS = S.toCharArray();
+        
+         //this loop add chars to arraylist
         //max element is defined in question
         for(int i = 0 ; i<200 ; i++){
             
@@ -55,15 +72,14 @@ class Solution {
 
                 arraylistS.add(charS[i]);
             }
-            
-            if(i < charF.length){
-                arraylistF.add(charF[i]);
-            }
-            
         }  
-      
-        //this loop adds and removes chars based on backspace (#)
-        for(int i = 0 , j=0 ; i<200 && j<200 ; i++, j++){
+     }
+     
+     
+     static void BackSpace(ArrayList<Character> arraylistS){
+         
+         //this loop adds and removes chars based on backspace (#)
+         for(int i = 0; i<200 ; i++){
             
             if(i < arraylistS.size()){
                 
@@ -76,28 +92,8 @@ class Solution {
                      i--;
                     
                 }
-    
             }
-            
-            if(j < arraylistF.size()){
-                
-                if(arraylistF.get(j) == '#'&& j>0){
-                    arraylistF.remove(j);
-                    arraylistF.remove(j-1);
-                    j-=2;
-                }else if(arraylistF.get(j) == '#'&& j==0){
-                     arraylistF.remove(j);
-                     j--;
-                    
-                }
-            }
-                  
-        }  
         
-        //final condition for comparing two strings in arraylists
-        if(arraylistS.equals(arraylistF)){
-            bool = true;
         }
-        return bool;
     }
 }
